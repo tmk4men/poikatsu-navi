@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "ポイ活ナビ — 初心者のための完全ガイド";
+export const alt = "ポイ活ナビ — 初月無料で、まず稼ぐ体験から";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -14,93 +14,99 @@ export default async function Image() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "linear-gradient(135deg, #4338CA 0%, #6366F1 50%, #818CF8 100%)",
+          background: "#FAFAF8",
           fontFamily: "sans-serif",
+          position: "relative",
         }}
       >
-        {/* Dot pattern overlay */}
+        {/* Top accent bar */}
         <div
           style={{
             position: "absolute",
-            inset: 0,
-            opacity: 0.08,
-            backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-            backgroundSize: "28px 28px",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 6,
+            background: "linear-gradient(90deg, #4338CA 0%, #6366F1 60%, #D97706 100%)",
           }}
         />
 
-        {/* Content */}
+        {/* Main content */}
         <div
           style={{
+            flex: 1,
             display: "flex",
             flexDirection: "column",
-            alignItems: "center",
             justifyContent: "center",
-            padding: "60px",
+            padding: "0 80px",
           }}
         >
           {/* Logo */}
           <div
             style={{
-              fontSize: 64,
-              fontWeight: 800,
-              color: "white",
-              marginBottom: 24,
-              letterSpacing: "-0.02em",
+              fontSize: 28,
+              fontWeight: 700,
+              color: "#4338CA",
+              marginBottom: 32,
+              letterSpacing: "-0.01em",
             }}
           >
             ポイ活ナビ
           </div>
 
-          {/* Divider */}
+          {/* Headline */}
           <div
             style={{
-              width: 80,
-              height: 3,
-              background: "rgba(255, 255, 255, 0.5)",
-              borderRadius: 4,
-              marginBottom: 28,
-            }}
-          />
-
-          {/* Tagline */}
-          <div
-            style={{
-              fontSize: 28,
-              color: "rgba(255, 255, 255, 0.9)",
-              textAlign: "center",
-              lineHeight: 1.5,
+              fontSize: 52,
+              fontWeight: 800,
+              color: "#1A1A1A",
+              lineHeight: 1.2,
+              letterSpacing: "-0.02em",
+              marginBottom: 20,
             }}
           >
-            初心者のための完全ガイド
+            「ポイ活って何？」から、
+            <br />
+            初月で数万円の成果を。
           </div>
 
+          {/* Sub */}
           <div
             style={{
-              fontSize: 18,
-              color: "rgba(255, 255, 255, 0.6)",
-              marginTop: 16,
+              fontSize: 20,
+              color: "#6B7280",
+              lineHeight: 1.6,
             }}
           >
-            丁寧なガイド × 毎日更新の案件情報
+            初月無料。セルフバック案件で確実に成果を出す体験を。
           </div>
         </div>
 
         {/* Bottom bar */}
         <div
           style={{
-            position: "absolute",
-            bottom: 40,
             display: "flex",
             alignItems: "center",
-            gap: 12,
-            fontSize: 16,
-            color: "rgba(255, 255, 255, 0.5)",
+            justifyContent: "space-between",
+            padding: "24px 80px",
+            borderTop: "1px solid #E8E5DF",
           }}
         >
-          poikatsu-navi.com
+          <div style={{ fontSize: 14, color: "#6B7280" }}>
+            poikatsu-site.vercel.app
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              fontSize: 14,
+              fontWeight: 600,
+              color: "#D97706",
+            }}
+          >
+            初月無料 → 月額¥20,000
+          </div>
         </div>
       </div>
     ),

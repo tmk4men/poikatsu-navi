@@ -36,11 +36,17 @@ export default function Footer() {
             <div>
               <p className="text-[11px] text-muted tracking-widest uppercase mb-3">その他</p>
               <ul className="space-y-2">
-                <li>
-                  <Link href="/about" className="text-muted hover:text-foreground transition-colors">
-                    このサイトについて
-                  </Link>
-                </li>
+                {[
+                  { href: "/about", label: "このサイトについて" },
+                  { href: "/privacy", label: "プライバシーポリシー" },
+                  { href: "/legal", label: "特定商取引法に基づく表記" },
+                ].map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="text-muted hover:text-foreground transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
