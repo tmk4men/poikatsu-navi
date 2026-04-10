@@ -1,306 +1,366 @@
+import Link from "next/link";
 import Button from "@/components/ui/button";
 import SectionReveal from "@/components/ui/section-reveal";
-
-/* ─── Feature data ─── */
-const features = [
-  {
-    icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-    ),
-    title: "初月無料で\n実際に稼げる",
-    description:
-      "最初の1ヶ月は完全無料。\nセルフバック案件を実行して、\n確実に成果を出す体験ができます。",
-  },
-  {
-    icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" />
-      </svg>
-    ),
-    title: "迷わない\nロードマップ",
-    description:
-      "「何から始めればいい？」を解消。\n初心者でも月5万円を目指せる\nステップバイステップの道筋。",
-  },
-  {
-    icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182" />
-      </svg>
-    ),
-    title: "毎日更新の\nお得案件情報",
-    description:
-      "モッピー・ハピタスなど\n人気サイトの案件を毎日自動収集。\n高還元案件を見逃しません。",
-  },
-];
-
-const steps = [
-  {
-    number: "01",
-    title: "無料で登録する",
-    description: "メールアドレスだけでOK。\n30秒で完了、初月は完全無料。",
-  },
-  {
-    number: "02",
-    title: "セルフバックで稼ぐ",
-    description: "ガイド通りに進めるだけ。\n初月で数万円の成果を実感。",
-  },
-  {
-    number: "03",
-    title: "継続して収入を伸ばす",
-    description: "毎日更新の案件情報と\n攻略法で、安定した副収入へ。",
-  },
-];
-
-const stats = [
-  { value: "¥0", label: "初月の料金" },
-  { value: "50+", label: "紹介案件数" },
-  { value: "毎日", label: "案件を自動更新" },
-  { value: "月5万〜", label: "目指せる収入" },
-];
 
 export default function HomePage() {
   return (
     <>
       {/* ─── Hero ─── */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden bg-background">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-to-b from-primary-lighter via-transparent to-transparent opacity-60 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-to-tl from-accent-lighter via-transparent to-transparent opacity-40 rounded-full blur-3xl" />
+          <div className="absolute top-20 right-[10%] w-[320px] h-[320px] bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 left-[5%] w-[200px] h-[200px] bg-accent/5 rounded-full blur-2xl" />
         </div>
 
-        <div className="mx-auto max-w-5xl px-5 pt-20 pb-24 md:pt-32 md:pb-36">
-          <div className="text-center">
-            <p className="animate-fade-in inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-lighter text-accent text-xs font-medium tracking-wider mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-              初月無料 ― まずは稼ぐ体験から
-            </p>
+        <div className="mx-auto max-w-5xl px-5 pt-16 pb-20 md:pt-28 md:pb-28">
+          <div className="md:grid md:grid-cols-[1.1fr_0.9fr] md:gap-16 md:items-center">
+            {/* Left: Copy */}
+            <div>
+              <p className="animate-fade-in text-accent text-[13px] font-medium tracking-wide mb-5">
+                ── 初月無料で、まず稼ぐ
+              </p>
 
-            <h1 className="animate-fade-in-up font-serif text-[clamp(1.75rem,5vw,3.5rem)] leading-[1.15] font-bold tracking-tight mb-6">
-              ポイ活で、
-              <span className="relative inline-block">
-                <span className="relative z-10 text-primary">初月から成果</span>
-                <span className="absolute bottom-1 left-0 w-full h-3 bg-accent-light/60 -z-0 rounded" />
-              </span>
-              を
-              <br className="hidden sm:block" />
-              出しませんか？
-            </h1>
+              <h1 className="animate-fade-in-up font-serif text-[clamp(1.625rem,4.5vw,3rem)] leading-[1.18] font-bold tracking-tight mb-5">
+                「ポイ活って何？」から、
+                <br />
+                <span className="text-primary">初月で数万円</span>の
+                <br className="hidden md:block" />
+                成果を出すまで。
+              </h1>
 
-            <p className="animate-fade-in-up delay-2 text-muted text-[clamp(0.9375rem,1vw+0.75rem,1.125rem)] leading-relaxed max-w-xl mx-auto mb-10">
-              初月は完全無料。
-              <br className="sm:hidden" />
-              セルフバック案件で確実に成果を出して、
-              <br />
-              その後も毎日更新の案件情報と攻略法で
-              <br className="sm:hidden" />
-              安定した副収入を目指せます。
-            </p>
+              <p className="animate-fade-in-up delay-2 text-muted text-[15px] leading-[1.9] mb-8 max-w-md">
+                セルフバック案件を使えば、
+                初月から確実にポイントが貯まります。
+                登録の仕方から案件の選び方まで、
+                全部ガイドに書いてあります。
+              </p>
 
-            <div className="animate-fade-in-up delay-3 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/signup" size="lg">
-                初月無料で始める
-              </Button>
-              <Button href="/guides" variant="outline" size="lg">
-                ガイドを見てみる
-              </Button>
+              <div className="animate-fade-in-up delay-3 flex flex-wrap gap-3">
+                <Button href="/signup" size="lg">
+                  初月無料で始める
+                </Button>
+                <Button href="/guides" variant="ghost" size="lg">
+                  ガイドを読む →
+                </Button>
+              </div>
+
+              <p className="animate-fade-in delay-5 text-[12px] text-muted/50 mt-4">
+                30日間無料 → 月額¥20,000。いつでも解約できます。
+              </p>
             </div>
 
-            <p className="animate-fade-in delay-5 text-xs text-muted/60 mt-4">
-              ※ 初月無料、2ヶ月目から月額20,000円。いつでも解約OK。
-            </p>
-          </div>
-        </div>
+            {/* Right: Visual card */}
+            <div className="hidden md:block animate-fade-in-up delay-3">
+              <div className="relative">
+                {/* Main card */}
+                <div className="bg-surface rounded-[var(--radius-xl)] border border-border-light shadow-[var(--shadow-xl)] p-7">
+                  <p className="text-xs text-muted mb-4 tracking-wide">今月の注目案件</p>
+                  <div className="space-y-3">
+                    {[
+                      { name: "楽天カード発行", site: "ハピタス", amount: "9,000円" },
+                      { name: "SBI証券 口座開設", site: "モッピー", amount: "7,500円" },
+                      { name: "U-NEXT 無料体験", site: "ハピタス", amount: "1,800円" },
+                    ].map((deal) => (
+                      <div key={deal.name} className="flex items-center justify-between py-2.5 border-b border-border-light last:border-0">
+                        <div>
+                          <p className="text-sm font-medium">{deal.name}</p>
+                          <p className="text-[11px] text-muted">{deal.site}経由</p>
+                        </div>
+                        <p className="font-serif text-base font-bold text-primary">
+                          {deal.amount}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-[11px] text-muted/60 mt-3 text-right">
+                    毎日自動更新
+                  </p>
+                </div>
 
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
-          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-8 md:h-12 fill-surface-alt">
-            <path d="M0,60 L0,20 Q300,0 600,20 Q900,40 1200,20 L1200,60 Z" />
-          </svg>
+                {/* Floating badge */}
+                <div className="absolute -top-3 -right-3 bg-accent text-white text-[11px] font-bold px-3 py-1.5 rounded-full shadow-[var(--shadow-md)] animate-float">
+                  初月で¥18,300分
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ─── Stats bar ─── */}
+      {/* ─── What you get (非対称レイアウト) ─── */}
       <SectionReveal>
-        <section className="bg-surface-alt py-12 md:py-16">
-          <div className="mx-auto max-w-4xl px-5">
-            <div className="reveal grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              {stats.map((stat, i) => (
-                <div key={stat.label} className={`delay-${i + 1}`}>
-                  <p className="font-serif text-3xl md:text-4xl font-bold text-primary mb-1">
-                    {stat.value}
-                  </p>
-                  <p className="text-sm text-muted">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </SectionReveal>
-
-      {/* ─── Features ─── */}
-      <SectionReveal>
-        <section className="py-20 md:py-28 px-5">
+        <section className="py-16 md:py-24 px-5 bg-surface-alt">
           <div className="mx-auto max-w-5xl">
-            <div className="reveal text-center mb-16">
-              <p className="text-primary text-sm font-medium tracking-wider mb-3">FEATURES</p>
-              <h2 className="font-serif text-[clamp(1.5rem,3vw,2.25rem)] font-bold">
-                選ばれる3つの理由
-              </h2>
-            </div>
+            <div className="reveal md:grid md:grid-cols-[0.4fr_1fr] md:gap-16 md:items-start">
+              {/* Left: sticky heading */}
+              <div className="mb-8 md:mb-0 md:sticky md:top-24">
+                <p className="text-primary text-[13px] font-medium tracking-wide mb-3">
+                  ── できること
+                </p>
+                <h2 className="font-serif text-[clamp(1.375rem,2.5vw,1.75rem)] font-bold leading-snug">
+                  未経験でも
+                  <br />
+                  迷わず進める
+                  <br />
+                  仕組みがあります
+                </h2>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10">
-              {features.map((feature, i) => (
-                <div
-                  key={i}
-                  className={`reveal delay-${i + 1} group relative bg-surface rounded-[var(--radius-lg)] border border-border-light p-8 transition-all duration-300 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1`}
-                >
-                  <div className="w-14 h-14 rounded-[var(--radius-md)] bg-primary-lighter text-primary flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
-                    {feature.icon}
+              {/* Right: staggered cards */}
+              <div className="space-y-4">
+                {[
+                  {
+                    title: "セルフバックの手順書",
+                    desc: "クレジットカードの発行、証券口座の開設、動画サービスの無料体験。やることは決まっています。画面を見ながら、そのまま進めるだけ。",
+                    tag: "初月の収益源",
+                  },
+                  {
+                    title: "毎日更新の案件データ",
+                    desc: "モッピー・ハピタス・どこ得など、複数サイトの案件を自動で収集。「今どこが一番お得か」が一目でわかります。",
+                    tag: "自動収集",
+                  },
+                  {
+                    title: "ステップ式の攻略ガイド",
+                    desc: "「ポイ活って何？」から始めて、月5万円を目指すまで。必要なことだけを、必要な順番で書いてあります。",
+                    tag: "読み放題",
+                  },
+                ].map((item, i) => (
+                  <div
+                    key={item.title}
+                    className={`reveal delay-${i + 1} bg-surface rounded-[var(--radius-lg)] border border-border-light p-6 md:p-7 transition-all duration-300 hover:shadow-[var(--shadow-md)]`}
+                    style={{ marginLeft: i === 1 ? "2rem" : "0" }}
+                  >
+                    <span className="inline-block text-[11px] font-medium text-primary bg-primary-lighter px-2.5 py-0.5 rounded-full mb-3">
+                      {item.tag}
+                    </span>
+                    <h3 className="font-serif text-base font-bold mb-2">{item.title}</h3>
+                    <p className="text-sm text-muted leading-[1.85]">{item.desc}</p>
                   </div>
-
-                  <h3 className="font-serif text-lg font-bold mb-3 whitespace-pre-line leading-snug">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-muted leading-relaxed whitespace-pre-line">
-                    {feature.description}
-                  </p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
       </SectionReveal>
 
-      {/* ─── How it works ─── */}
+      {/* ─── How it works (横スクロール風) ─── */}
       <SectionReveal>
-        <section className="py-20 md:py-28 px-5 bg-surface-alt relative overflow-hidden">
-          <div className="absolute -right-32 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full border border-border opacity-30" />
-
-          <div className="mx-auto max-w-4xl relative">
-            <div className="reveal text-center mb-16">
-              <p className="text-primary text-sm font-medium tracking-wider mb-3">HOW IT WORKS</p>
-              <h2 className="font-serif text-[clamp(1.5rem,3vw,2.25rem)] font-bold">
-                初月無料で稼ぐまでの
-                <br className="sm:hidden" />
-                3ステップ
-              </h2>
-            </div>
-
-            <div className="space-y-8 md:space-y-0 md:grid md:grid-cols-3 md:gap-8 relative">
-              <div className="hidden md:block absolute top-10 left-[16.666%] right-[16.666%] h-[1px] bg-border" />
-
-              {steps.map((step, i) => (
-                <div key={i} className={`reveal delay-${i + 1} relative text-center`}>
-                  <div className="w-20 h-20 rounded-full bg-surface border-2 border-primary text-primary font-serif text-2xl font-bold flex items-center justify-center mx-auto mb-6 relative z-10 transition-all duration-300 hover:bg-primary hover:text-white">
-                    {step.number}
-                  </div>
-
-                  <h3 className="font-serif text-lg font-bold mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-muted leading-relaxed whitespace-pre-line">
-                    {step.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </SectionReveal>
-
-      {/* ─── Pricing ─── */}
-      <SectionReveal>
-        <section className="py-20 md:py-28 px-5">
-          <div className="mx-auto max-w-4xl">
-            <div className="reveal text-center mb-16">
-              <p className="text-primary text-sm font-medium tracking-wider mb-3">PRICING</p>
-              <h2 className="font-serif text-[clamp(1.5rem,3vw,2.25rem)] font-bold mb-4">
-                まずは無料で、
-                <br className="sm:hidden" />
-                稼ぐ体験を
-              </h2>
-              <p className="text-muted max-w-md mx-auto">
-                初月は完全無料。
-                <br />
-                セルフバックで成果を実感してから、
-                <br className="sm:hidden" />
-                続けるか決められます。
+        <section className="py-16 md:py-24 px-5">
+          <div className="mx-auto max-w-5xl">
+            <div className="reveal mb-10">
+              <p className="text-primary text-[13px] font-medium tracking-wide mb-3">
+                ── 始め方
               </p>
+              <h2 className="font-serif text-[clamp(1.375rem,2.5vw,1.75rem)] font-bold">
+                登録から収益化まで
+              </h2>
             </div>
 
-            <div className="reveal delay-1 relative bg-surface rounded-[var(--radius-lg)] border-2 border-primary p-8 md:p-10 shadow-[var(--shadow-lg)] max-w-lg mx-auto">
-              <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full tracking-wider">
-                初月無料
-              </span>
+            <div className="reveal delay-1 grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-0">
+              {[
+                {
+                  step: "01",
+                  title: "登録する",
+                  desc: "メールアドレスだけ。30秒で終わります。クレジットカードの登録は不要です。",
+                  accent: false,
+                },
+                {
+                  step: "02",
+                  title: "ガイド通りにやる",
+                  desc: "セルフバック案件を順番に実行。初月で数万円の成果が出ます。ここまで無料。",
+                  accent: true,
+                },
+                {
+                  step: "03",
+                  title: "続ける or やめる",
+                  desc: "成果に納得したら継続。合わなければ30日以内に解約。料金は一切かかりません。",
+                  accent: false,
+                },
+              ].map((item, i) => (
+                <div
+                  key={item.step}
+                  className={`relative p-6 md:p-8 border border-border-light ${
+                    i === 0 ? "rounded-t-[var(--radius-lg)] md:rounded-l-[var(--radius-lg)] md:rounded-tr-none" :
+                    i === 2 ? "rounded-b-[var(--radius-lg)] md:rounded-r-[var(--radius-lg)] md:rounded-bl-none" : ""
+                  } ${item.accent ? "bg-primary text-white border-primary" : "bg-surface"} -mt-[1px] md:mt-0 md:-ml-[1px]`}
+                >
+                  <span className={`font-serif text-3xl font-bold ${item.accent ? "text-white/30" : "text-border"} block mb-4`}>
+                    {item.step}
+                  </span>
+                  <h3 className={`font-serif text-base font-bold mb-2 ${item.accent ? "text-white" : ""}`}>
+                    {item.title}
+                  </h3>
+                  <p className={`text-sm leading-[1.85] ${item.accent ? "text-indigo-100" : "text-muted"}`}>
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </SectionReveal>
 
-              <p className="text-sm text-primary font-medium mb-2">Premium Plan</p>
-              <h3 className="font-serif text-xl font-bold mb-1">プレミアムプラン</h3>
+      {/* ─── Numbers (数字で見る) ─── */}
+      <SectionReveal>
+        <section className="py-14 md:py-20 px-5 border-y border-border-light">
+          <div className="mx-auto max-w-4xl">
+            <div className="reveal flex flex-wrap justify-between gap-8 md:gap-4">
+              {[
+                { num: "¥0", sub: "初月の料金", note: "30日間完全無料" },
+                { num: "30+", sub: "対応サイト", note: "どこ得経由で横断検索" },
+                { num: "毎朝", sub: "案件更新", note: "自動クローリング" },
+              ].map((item) => (
+                <div key={item.sub} className="text-left">
+                  <p className="font-serif text-[clamp(2rem,4vw,2.75rem)] font-bold text-foreground leading-none">
+                    {item.num}
+                  </p>
+                  <p className="text-sm font-medium mt-1">{item.sub}</p>
+                  <p className="text-[11px] text-muted mt-0.5">{item.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </SectionReveal>
 
-              <div className="flex items-baseline gap-3 mb-2">
-                <p className="flex items-baseline gap-1">
-                  <span className="font-serif text-4xl font-bold">¥20,000</span>
-                  <span className="text-sm text-muted">/月</span>
+      {/* ─── Pricing (シンプル) ─── */}
+      <SectionReveal>
+        <section className="py-16 md:py-24 px-5 bg-surface-alt">
+          <div className="mx-auto max-w-5xl">
+            <div className="reveal md:grid md:grid-cols-[1fr_1fr] md:gap-12 md:items-center">
+              {/* Left: copy */}
+              <div className="mb-10 md:mb-0">
+                <p className="text-primary text-[13px] font-medium tracking-wide mb-3">
+                  ── 料金
+                </p>
+                <h2 className="font-serif text-[clamp(1.375rem,2.5vw,1.75rem)] font-bold leading-snug mb-4">
+                  初月は無料です。
+                  <br />
+                  合わなければ、
+                  <br />
+                  やめてください。
+                </h2>
+                <p className="text-sm text-muted leading-[1.9] max-w-sm">
+                  初月のセルフバックだけで元が取れるように
+                  設計しています。成果が出なければ
+                  続ける理由はありません。
                 </p>
               </div>
-              <p className="text-xs text-accent font-medium mb-6">
-                ※ 最初の30日間は無料でお試しいただけます
-              </p>
 
-              <ul className="space-y-3 text-sm mb-8">
-                {[
-                  "すべてのガイド・攻略法が読み放題",
-                  "全案件情報（毎日自動更新）",
-                  "高還元案件の速報",
-                  "月5万円以上を目指す実践ノウハウ",
-                  "セルフバック完全ガイド（初月で成果）",
-                  "ブックマーク・お気に入り機能",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                    </svg>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              {/* Right: pricing card */}
+              <div className="reveal delay-2 bg-surface rounded-[var(--radius-xl)] border border-border-light shadow-[var(--shadow-lg)] p-7 md:p-9">
+                <div className="flex items-baseline justify-between mb-6">
+                  <div>
+                    <p className="text-[11px] text-muted tracking-widest uppercase mb-1">Premium</p>
+                    <p className="font-serif text-3xl font-bold">¥20,000<span className="text-sm font-normal text-muted">/月</span></p>
+                  </div>
+                  <span className="bg-accent text-white text-[11px] font-bold px-3 py-1 rounded-full">
+                    30日無料
+                  </span>
+                </div>
 
-              <Button href="/signup" className="w-full" size="lg">
-                初月無料で始める
-              </Button>
+                <div className="h-[1px] bg-border-light mb-6" />
 
-              <p className="text-xs text-muted text-center mt-4">
-                いつでも解約OK。解約後も期間終了まで利用可能。
-              </p>
+                <ul className="space-y-2.5 text-[13px] mb-8">
+                  {[
+                    "すべてのガイド・攻略法",
+                    "全案件情報（毎日自動更新）",
+                    "セルフバック完全ガイド",
+                    "高還元案件の速報",
+                    "ブックマーク機能",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2.5">
+                      <span className="w-1 h-1 rounded-full bg-primary shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <Button href="/signup" className="w-full">
+                  初月無料で始める
+                </Button>
+
+                <p className="text-[11px] text-muted text-center mt-3">
+                  いつでも解約OK / 解約後も期間内は利用可
+                </p>
+              </div>
             </div>
           </div>
         </section>
       </SectionReveal>
 
-      {/* ─── Final CTA ─── */}
+      {/* ─── FAQ (テンプレ感なし) ─── */}
       <SectionReveal>
-        <section className="relative py-24 md:py-32 px-5 overflow-hidden">
-          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary-dark via-primary to-primary-light" />
-          <div className="absolute inset-0 -z-10 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)", backgroundSize: "32px 32px" }} />
-
-          <div className="reveal mx-auto max-w-3xl text-center text-white">
-            <h2 className="font-serif text-[clamp(1.5rem,3.5vw,2.5rem)] font-bold mb-5 leading-tight">
-              初月無料。
-              <br className="sm:hidden" />
-              まずは稼ぐ体験から。
-            </h2>
-            <p className="text-indigo-200 mb-10 text-[clamp(0.875rem,1vw+0.75rem,1.0625rem)] leading-relaxed">
-              セルフバックで確実に成果を出して、
-              <br className="sm:hidden" />
-              続けるか決めてください。
+        <section className="py-16 md:py-24 px-5">
+          <div className="mx-auto max-w-2xl">
+            <p className="reveal text-primary text-[13px] font-medium tracking-wide mb-3">
+              ── よくある質問
             </p>
-            <Button
-              href="/signup"
-              size="lg"
-              className="bg-white text-primary hover:bg-indigo-50 border-none"
-            >
-              初月無料で始める
-            </Button>
+
+            <div className="reveal delay-1 space-y-0 border border-border-light rounded-[var(--radius-lg)] overflow-hidden divide-y divide-border-light">
+              {[
+                {
+                  q: "本当に初月無料ですか？",
+                  a: "はい。30日以内に解約すれば一切料金はかかりません。カード情報は登録いただきますが、課金は31日目からです。",
+                },
+                {
+                  q: "初月でどのくらい稼げますか？",
+                  a: "セルフバック案件を中心に進めれば、数万円の成果を出せます。楽天カード発行だけでも9,000円です。",
+                },
+                {
+                  q: "ポイ活の経験がなくても大丈夫ですか？",
+                  a: "大丈夫です。「ポイ活って何？」から始められるガイドを用意しています。画面を見ながらそのまま進めるだけです。",
+                },
+                {
+                  q: "解約はすぐにできますか？",
+                  a: "はい。設定画面からいつでも解約できます。解約後も課金期間の終了までコンテンツを利用できます。",
+                },
+              ].map(({ q, a }) => (
+                <details key={q} className="group bg-surface">
+                  <summary className="px-5 py-4 cursor-pointer text-sm font-medium flex items-center justify-between transition-colors hover:text-primary">
+                    {q}
+                    <svg
+                      className="w-4 h-4 text-muted shrink-0 ml-4 transition-transform duration-300 group-open:rotate-45"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                  </summary>
+                  <p className="px-5 pb-4 text-[13px] text-muted leading-[1.85]">
+                    {a}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      </SectionReveal>
+
+      {/* ─── Final CTA (テンプレ脱却) ─── */}
+      <SectionReveal>
+        <section className="py-16 md:py-20 px-5 bg-foreground text-background">
+          <div className="reveal mx-auto max-w-3xl md:flex md:items-center md:justify-between md:gap-8">
+            <div className="mb-6 md:mb-0">
+              <h2 className="font-serif text-[clamp(1.25rem,2.5vw,1.625rem)] font-bold leading-snug">
+                考えるより、
+                <br className="md:hidden" />
+                やってみたほうが早いです。
+              </h2>
+              <p className="text-sm text-background/50 mt-2">
+                初月無料。合わなければ解約するだけ。
+              </p>
+            </div>
+            <div className="shrink-0">
+              <Link
+                href="/signup"
+                className="inline-flex items-center justify-center px-7 py-3.5 text-sm font-medium bg-background text-foreground rounded-full transition-all duration-300 hover:opacity-90 active:scale-[0.97]"
+              >
+                無料で始める
+              </Link>
+            </div>
           </div>
         </section>
       </SectionReveal>
