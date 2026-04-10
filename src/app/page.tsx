@@ -14,29 +14,25 @@ export default function HomePage() {
 
         <div className="mx-auto max-w-5xl px-5 pt-16 pb-20 md:pt-28 md:pb-28">
           <div className="md:grid md:grid-cols-[1.1fr_0.9fr] md:gap-16 md:items-center">
-            {/* Left: Copy */}
             <div>
               <p className="animate-fade-in text-accent text-[13px] font-medium tracking-wide mb-5">
                 ── 初月無料で、まず稼ぐ
               </p>
 
               <h1 className="animate-fade-in-up font-serif text-[clamp(1.625rem,4.5vw,3rem)] leading-[1.18] font-bold tracking-tight mb-5">
-                「ポイ活って何？」
-                <br className="md:hidden" />
-                から、
-                <br className="hidden md:block" />
-                <span className="text-primary">初月で数万円</span>の
+                「ポイ活って何？」から、
                 <br />
+                <span className="text-primary">初月で数万円</span>の
                 成果を出すまで。
               </h1>
 
               <p className="animate-fade-in-up anim-d2 text-muted text-[15px] leading-[1.9] mb-8 max-w-md">
                 セルフバック案件を使えば、
-                <br className="hidden sm:block" />
+                <wbr />
                 初月から確実にポイントが貯まります。
-                <br className="hidden sm:block" />
+                <br />
                 登録の仕方から案件の選び方まで、
-                <br className="hidden sm:block" />
+                <wbr />
                 全部ガイドに書いてあります。
               </p>
 
@@ -54,59 +50,72 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Right: Visual card */}
+            {/* 案件カード（デスクトップのみ） */}
             <div className="hidden md:block animate-slide-in-right anim-d3">
               <div className="relative">
                 <div className="bg-surface rounded-[var(--radius-xl)] border border-border-light shadow-[var(--shadow-xl)] p-7">
-                  <p className="text-xs text-muted mb-4 tracking-wide">
-                    今月の注目案件
-                  </p>
-                  <div className="space-y-3">
-                    {[
-                      { name: "楽天カード発行", site: "ハピタス", amount: "9,000円" },
-                      { name: "SBI証券 口座開設", site: "モッピー", amount: "7,500円" },
-                      { name: "U-NEXT 無料体験", site: "ハピタス", amount: "1,800円" },
-                    ].map((deal, i) => (
-                      <div
-                        key={deal.name}
-                        className="flex items-center justify-between py-2.5 border-b border-border-light last:border-0"
-                        style={{ animation: `fadeInUp 0.5s ${0.4 + i * 0.1}s var(--ease-out-cubic) both` }}
-                      >
-                        <div>
-                          <p className="text-sm font-medium">{deal.name}</p>
-                          <p className="text-[11px] text-muted">{deal.site}経由</p>
-                        </div>
-                        <p className="font-serif text-base font-bold text-primary">
-                          {deal.amount}
-                        </p>
+                  <p className="text-xs text-muted mb-4 tracking-wide">今月の注目案件</p>
+                  {[
+                    { name: "楽天カード発行", site: "ハピタス", amount: "9,000円", d: "0.5s" },
+                    { name: "SBI証券 口座開設", site: "モッピー", amount: "7,500円", d: "0.65s" },
+                    { name: "U-NEXT 無料体験", site: "ハピタス", amount: "1,800円", d: "0.8s" },
+                  ].map((deal) => (
+                    <div
+                      key={deal.name}
+                      className="flex items-center justify-between py-2.5 border-b border-border-light last:border-0"
+                      style={{ animation: `fadeInUp 0.7s ${deal.d} var(--ease-out-cubic) both` }}
+                    >
+                      <div>
+                        <p className="text-sm font-medium">{deal.name}</p>
+                        <p className="text-[11px] text-muted">{deal.site}経由</p>
                       </div>
-                    ))}
-                  </div>
-                  <p className="text-[11px] text-muted/60 mt-3 text-right">
+                      <p className="font-serif text-base font-bold text-primary">{deal.amount}</p>
+                    </div>
+                  ))}
+                  <p
+                    className="text-[11px] text-muted/60 mt-3 text-right"
+                    style={{ animation: "fadeIn 0.6s 1s var(--ease-out-cubic) both" }}
+                  >
                     毎日自動更新
                   </p>
                 </div>
 
-                {/* Floating badge */}
                 <div className="absolute -top-3 -right-3 bg-accent text-white text-[11px] font-bold px-3 py-1.5 rounded-full shadow-[var(--shadow-md)] animate-float">
                   初月で¥18,300分
                 </div>
+              </div>
+            </div>
+
+            {/* 案件カード（モバイル） */}
+            <div className="md:hidden mt-10 animate-fade-in-up anim-d4">
+              <div className="bg-surface rounded-[var(--radius-lg)] border border-border-light shadow-[var(--shadow-md)] p-5">
+                <p className="text-xs text-muted mb-3 tracking-wide">今月の注目案件</p>
+                {[
+                  { name: "楽天カード発行", site: "ハピタス", amount: "9,000円" },
+                  { name: "SBI証券 口座開設", site: "モッピー", amount: "7,500円" },
+                  { name: "U-NEXT 無料体験", site: "ハピタス", amount: "1,800円" },
+                ].map((deal) => (
+                  <div key={deal.name} className="flex items-center justify-between py-2 border-b border-border-light last:border-0">
+                    <div>
+                      <p className="text-sm font-medium">{deal.name}</p>
+                      <p className="text-[11px] text-muted">{deal.site}経由</p>
+                    </div>
+                    <p className="font-serif text-base font-bold text-primary">{deal.amount}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── What you get ─── */}
+      {/* ─── できること ─── */}
       <SectionReveal>
-        <section className="py-16 md:py-24 px-5 bg-surface-alt">
+        <section className="py-14 md:py-20 px-5 bg-surface-alt">
           <div className="mx-auto max-w-5xl">
             <div className="md:grid md:grid-cols-[0.4fr_1fr] md:gap-16 md:items-start">
-              {/* Left: heading (slide in from left) */}
               <div className="reveal-left mb-8 md:mb-0 md:sticky md:top-24">
-                <p className="text-primary text-[13px] font-medium tracking-wide mb-3">
-                  ── できること
-                </p>
+                <p className="text-primary text-[13px] font-medium tracking-wide mb-3">── できること</p>
                 <h2 className="font-serif text-[clamp(1.375rem,2.5vw,1.75rem)] font-bold leading-snug">
                   未経験でも
                   <br />
@@ -116,39 +125,34 @@ export default function HomePage() {
                 </h2>
               </div>
 
-              {/* Right: staggered cards */}
               <div className="stagger-children space-y-4">
                 {[
                   {
                     title: "セルフバックの手順書",
-                    desc: "クレジットカードの発行、証券口座の開設、\n動画サービスの無料体験。\nやることは決まっています。\n画面を見ながら、そのまま進めるだけ。",
+                    desc: "クレジットカードの発行、証券口座の開設、動画サービスの無料体験。やることは決まっています。画面を見ながら、そのまま進めるだけ。",
                     tag: "初月の収益源",
                   },
                   {
                     title: "毎日更新の案件データ",
-                    desc: "モッピー・ハピタス・どこ得など、\n複数サイトの案件を自動で収集。\n「今どこが一番お得か」が\n一目でわかります。",
+                    desc: "モッピー・ハピタス・どこ得など、複数サイトの案件を自動で収集。「今どこが一番お得か」が一目でわかります。",
                     tag: "自動収集",
                   },
                   {
                     title: "ステップ式の攻略ガイド",
-                    desc: "「ポイ活って何？」から始めて、\n月5万円を目指すまで。\n必要なことだけを、\n必要な順番で書いてあります。",
+                    desc: "「ポイ活って何？」から始めて、月5万円を目指すまで。必要なことだけを、必要な順番で書いてあります。",
                     tag: "読み放題",
                   },
                 ].map((item, i) => (
                   <div
                     key={item.title}
-                    className={`card-hover bg-surface rounded-[var(--radius-lg)] border border-border-light p-6 md:p-7`}
+                    className="card-hover bg-surface rounded-[var(--radius-lg)] border border-border-light p-6 md:p-7"
                     style={{ marginLeft: i === 1 ? "2rem" : "0" }}
                   >
                     <span className="inline-block text-[11px] font-medium text-primary bg-primary-lighter px-2.5 py-0.5 rounded-full mb-3">
                       {item.tag}
                     </span>
-                    <h3 className="font-serif text-base font-bold mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-muted leading-[1.85] whitespace-pre-line">
-                      {item.desc}
-                    </p>
+                    <h3 className="font-serif text-base font-bold mb-2">{item.title}</h3>
+                    <p className="text-sm text-muted leading-[1.85]">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -157,14 +161,12 @@ export default function HomePage() {
         </section>
       </SectionReveal>
 
-      {/* ─── How it works ─── */}
+      {/* ─── 始め方 ─── */}
       <SectionReveal>
-        <section className="py-16 md:py-24 px-5">
+        <section className="py-14 md:py-20 px-5">
           <div className="mx-auto max-w-5xl">
             <div className="reveal mb-10">
-              <p className="text-primary text-[13px] font-medium tracking-wide mb-3">
-                ── 始め方
-              </p>
+              <p className="text-primary text-[13px] font-medium tracking-wide mb-3">── 始め方</p>
               <h2 className="font-serif text-[clamp(1.375rem,2.5vw,1.75rem)] font-bold">
                 登録から収益化まで
               </h2>
@@ -173,21 +175,18 @@ export default function HomePage() {
             <div className="stagger-children grid grid-cols-1 md:grid-cols-3 gap-0">
               {[
                 {
-                  step: "01",
-                  title: "登録する",
-                  desc: "メールアドレスだけ。\n30秒で終わります。\nカード登録は不要です。",
+                  step: "01", title: "登録する",
+                  desc: "メールアドレスだけ。30秒で終わります。カード登録は不要です。",
                   accent: false,
                 },
                 {
-                  step: "02",
-                  title: "ガイド通りにやる",
-                  desc: "セルフバック案件を\n順番に実行。\n初月で数万円の成果が出ます。\nここまで無料。",
+                  step: "02", title: "ガイド通りにやる",
+                  desc: "セルフバック案件を順番に実行。初月で数万円の成果が出ます。ここまで無料。",
                   accent: true,
                 },
                 {
-                  step: "03",
-                  title: "続ける or やめる",
-                  desc: "成果に納得したら継続。\n合わなければ30日以内に解約。\n料金は一切かかりません。",
+                  step: "03", title: "続ける or やめる",
+                  desc: "成果に納得したら継続。合わなければ30日以内に解約。料金は一切かかりません。",
                   accent: false,
                 },
               ].map((item, i) => (
@@ -201,12 +200,8 @@ export default function HomePage() {
                   <span className={`font-serif text-3xl font-bold ${item.accent ? "text-white/30" : "text-border"} block mb-4`}>
                     {item.step}
                   </span>
-                  <h3 className={`font-serif text-base font-bold mb-2 ${item.accent ? "text-white" : ""}`}>
-                    {item.title}
-                  </h3>
-                  <p className={`text-sm leading-[1.85] whitespace-pre-line ${item.accent ? "text-indigo-100" : "text-muted"}`}>
-                    {item.desc}
-                  </p>
+                  <h3 className={`font-serif text-base font-bold mb-2 ${item.accent ? "text-white" : ""}`}>{item.title}</h3>
+                  <p className={`text-sm leading-[1.85] ${item.accent ? "text-indigo-100" : "text-muted"}`}>{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -214,9 +209,9 @@ export default function HomePage() {
         </section>
       </SectionReveal>
 
-      {/* ─── Numbers ─── */}
+      {/* ─── 数字 ─── */}
       <SectionReveal>
-        <section className="py-14 md:py-20 px-5 border-y border-border-light">
+        <section className="py-12 md:py-16 px-5 border-y border-border-light">
           <div className="mx-auto max-w-4xl">
             <div className="stagger-children flex flex-wrap justify-between gap-8 md:gap-4">
               {[
@@ -237,16 +232,13 @@ export default function HomePage() {
         </section>
       </SectionReveal>
 
-      {/* ─── Pricing ─── */}
+      {/* ─── 料金 ─── */}
       <SectionReveal>
-        <section className="py-16 md:py-24 px-5 bg-surface-alt">
+        <section className="py-14 md:py-20 px-5 bg-surface-alt">
           <div className="mx-auto max-w-5xl">
             <div className="md:grid md:grid-cols-[1fr_1fr] md:gap-12 md:items-center">
-              {/* Left: copy (slide from left) */}
               <div className="reveal-left mb-10 md:mb-0">
-                <p className="text-primary text-[13px] font-medium tracking-wide mb-3">
-                  ── 料金
-                </p>
+                <p className="text-primary text-[13px] font-medium tracking-wide mb-3">── 料金</p>
                 <h2 className="font-serif text-[clamp(1.375rem,2.5vw,1.75rem)] font-bold leading-snug mb-4">
                   初月は無料です。
                   <br />
@@ -255,43 +247,23 @@ export default function HomePage() {
                   やめてください。
                 </h2>
                 <p className="text-sm text-muted leading-[1.9] max-w-sm">
-                  初月のセルフバックだけで
-                  <br className="hidden sm:block" />
-                  元が取れるように設計しています。
-                  <br className="hidden sm:block" />
-                  成果が出なければ
-                  <br className="hidden sm:block" />
-                  続ける理由はありません。
+                  初月のセルフバックだけで元が取れるように設計しています。成果が出なければ続ける理由はありません。
                 </p>
               </div>
 
-              {/* Right: pricing card (scale in) */}
               <div className="reveal-scale bg-surface rounded-[var(--radius-xl)] border border-border-light shadow-[var(--shadow-lg)] p-7 md:p-9">
                 <div className="flex items-baseline justify-between mb-6">
                   <div>
-                    <p className="text-[11px] text-muted tracking-widest uppercase mb-1">
-                      Premium
-                    </p>
-                    <p className="font-serif text-3xl font-bold">
-                      ¥20,000
-                      <span className="text-sm font-normal text-muted">/月</span>
-                    </p>
+                    <p className="text-[11px] text-muted tracking-widest uppercase mb-1">Premium</p>
+                    <p className="font-serif text-3xl font-bold">¥20,000<span className="text-sm font-normal text-muted">/月</span></p>
                   </div>
-                  <span className="bg-accent text-white text-[11px] font-bold px-3 py-1 rounded-full">
-                    30日無料
-                  </span>
+                  <span className="bg-accent text-white text-[11px] font-bold px-3 py-1 rounded-full">30日無料</span>
                 </div>
 
                 <div className="h-[1px] bg-border-light mb-6" />
 
                 <ul className="space-y-2.5 text-[13px] mb-8">
-                  {[
-                    "すべてのガイド・攻略法",
-                    "全案件情報（毎日自動更新）",
-                    "セルフバック完全ガイド",
-                    "高還元案件の速報",
-                    "ブックマーク機能",
-                  ].map((item) => (
+                  {["すべてのガイド・攻略法", "全案件情報（毎日自動更新）", "セルフバック完全ガイド", "高還元案件の速報", "ブックマーク機能"].map((item) => (
                     <li key={item} className="flex items-center gap-2.5">
                       <span className="w-1 h-1 rounded-full bg-primary shrink-0" />
                       {item}
@@ -299,13 +271,8 @@ export default function HomePage() {
                   ))}
                 </ul>
 
-                <Button href="/signup" className="w-full">
-                  初月無料で始める
-                </Button>
-
-                <p className="text-[11px] text-muted text-center mt-3">
-                  いつでも解約OK / 解約後も期間内は利用可
-                </p>
+                <Button href="/signup" className="w-full">初月無料で始める</Button>
+                <p className="text-[11px] text-muted text-center mt-3">いつでも解約OK / 解約後も期間内は利用可</p>
               </div>
             </div>
           </div>
@@ -314,47 +281,25 @@ export default function HomePage() {
 
       {/* ─── FAQ ─── */}
       <SectionReveal>
-        <section className="py-16 md:py-24 px-5">
+        <section className="py-14 md:py-20 px-5">
           <div className="mx-auto max-w-2xl">
-            <p className="reveal text-primary text-[13px] font-medium tracking-wide mb-3">
-              ── よくある質問
-            </p>
+            <p className="reveal text-primary text-[13px] font-medium tracking-wide mb-3">── よくある質問</p>
 
             <div className="reveal anim-d1 space-y-0 border border-border-light rounded-[var(--radius-lg)] overflow-hidden divide-y divide-border-light">
               {[
-                {
-                  q: "本当に初月無料ですか？",
-                  a: "はい。30日以内に解約すれば\n一切料金はかかりません。\nカード情報は登録いただきますが、\n課金は31日目からです。",
-                },
-                {
-                  q: "初月でどのくらい稼げますか？",
-                  a: "セルフバック案件を中心に進めれば、\n数万円の成果を出せます。\n楽天カード発行だけでも9,000円です。",
-                },
-                {
-                  q: "ポイ活の経験がなくても大丈夫ですか？",
-                  a: "大丈夫です。\n「ポイ活って何？」から始められる\nガイドを用意しています。\n画面を見ながらそのまま進めるだけです。",
-                },
-                {
-                  q: "解約はすぐにできますか？",
-                  a: "はい。設定画面から\nいつでも解約できます。\n解約後も課金期間の終了まで\nコンテンツを利用できます。",
-                },
+                { q: "本当に初月無料ですか？", a: "はい。30日以内に解約すれば一切料金はかかりません。カード情報は登録いただきますが、課金は31日目からです。" },
+                { q: "初月でどのくらい稼げますか？", a: "セルフバック案件を中心に進めれば、数万円の成果を出せます。楽天カード発行だけでも9,000円です。" },
+                { q: "ポイ活の経験がなくても大丈夫ですか？", a: "大丈夫です。「ポイ活って何？」から始められるガイドを用意しています。画面を見ながらそのまま進めるだけです。" },
+                { q: "解約はすぐにできますか？", a: "はい。設定画面からいつでも解約できます。解約後も課金期間の終了までコンテンツを利用できます。" },
               ].map(({ q, a }) => (
                 <details key={q} className="group bg-surface">
                   <summary className="px-5 py-4 cursor-pointer text-sm font-medium flex items-center justify-between transition-colors hover:text-primary">
                     {q}
-                    <svg
-                      className="w-4 h-4 text-muted shrink-0 ml-4 transition-transform duration-300 group-open:rotate-45"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                    >
+                    <svg className="w-4 h-4 text-muted shrink-0 ml-4 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
                   </summary>
-                  <p className="px-5 pb-4 text-[13px] text-muted leading-[1.85] whitespace-pre-line">
-                    {a}
-                  </p>
+                  <p className="px-5 pb-4 text-[13px] text-muted leading-[1.85]">{a}</p>
                 </details>
               ))}
             </div>
@@ -362,23 +307,15 @@ export default function HomePage() {
         </section>
       </SectionReveal>
 
-      {/* ─── Final CTA ─── */}
+      {/* ─── CTA ─── */}
       <SectionReveal>
-        <section className="py-16 md:py-20 px-5 bg-foreground text-background">
+        <section className="py-14 md:py-16 px-5 bg-foreground text-background">
           <div className="reveal mx-auto max-w-3xl md:flex md:items-center md:justify-between md:gap-8">
             <div className="mb-6 md:mb-0">
               <h2 className="font-serif text-[clamp(1.25rem,2.5vw,1.625rem)] font-bold leading-snug">
-                考えるより、
-                <br className="md:hidden" />
-                やってみたほうが
-                <br className="hidden md:block" />
-                早いです。
+                考えるより、やってみたほうが早いです。
               </h2>
-              <p className="text-sm text-background/50 mt-2">
-                初月無料。
-                <br className="sm:hidden" />
-                合わなければ解約するだけ。
-              </p>
+              <p className="text-sm text-background/50 mt-2">初月無料。合わなければ解約するだけ。</p>
             </div>
             <div className="shrink-0">
               <Link
