@@ -17,71 +17,95 @@ export default function PricingPage() {
           <div className="text-center mb-16">
             <p className="text-primary text-sm font-medium tracking-wider mb-3">PRICING</p>
             <h1 className="font-serif text-[clamp(1.75rem,4vw,2.5rem)] font-bold mb-4">
-              料金プラン
+              まずは無料で、稼ぐ体験を
             </h1>
-            <p className="text-muted max-w-md mx-auto leading-relaxed">
-              まずは無料で始めて、
-              <br className="sm:hidden" />
-              もっと詳しく知りたくなったら
+            <p className="text-muted max-w-lg mx-auto leading-relaxed">
+              最初の30日間は完全無料。
               <br />
-              プレミアムへアップグレード。
+              セルフバック案件で実際に成果を出してから、
+              <br className="sm:hidden" />
+              続けるか決められます。
             </p>
           </div>
 
           <SectionReveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              {/* Free plan */}
-              <div className="reveal delay-1 bg-surface rounded-[var(--radius-lg)] border border-border-light p-8">
-                <p className="text-xs text-muted font-medium tracking-widest uppercase mb-2">Free</p>
-                <h2 className="font-serif text-xl font-bold mb-1">無料プラン</h2>
-                <p className="flex items-baseline gap-1 mb-8">
-                  <span className="font-serif text-4xl font-bold">¥0</span>
+            {/* Single plan card */}
+            <div className="reveal delay-1 relative bg-surface rounded-[var(--radius-lg)] border-2 border-primary p-8 md:p-10 shadow-[var(--shadow-lg)] max-w-lg mx-auto">
+              <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full tracking-wider">
+                30日間無料
+              </span>
+
+              <p className="text-xs text-primary font-medium tracking-widest uppercase mb-2">Premium Plan</p>
+              <h2 className="font-serif text-xl font-bold mb-1">プレミアムプラン</h2>
+
+              <div className="mb-2">
+                <p className="flex items-baseline gap-1">
+                  <span className="font-serif text-4xl font-bold">¥20,000</span>
                   <span className="text-sm text-muted">/月</span>
                 </p>
-
-                <ul className="space-y-3 text-sm mb-8">
-                  {["初心者向けガイド閲覧", "案件情報（一部）", "基本的なポイ活ノウハウ"].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-success shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                      </svg>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Button href="/signup" variant="outline" className="w-full">
-                  無料で登録
-                </Button>
               </div>
+              <p className="text-xs text-accent font-medium mb-8">
+                ※ 最初の30日間は無料。いつでも解約OK。
+              </p>
 
-              {/* Premium plan */}
-              <div className="reveal delay-2 relative bg-surface rounded-[var(--radius-lg)] border-2 border-primary p-8 shadow-[var(--shadow-lg)]">
-                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full tracking-wider">
-                  おすすめ
-                </span>
+              <ul className="space-y-3 text-sm mb-8">
+                {[
+                  "すべてのガイド・攻略法が読み放題",
+                  "全案件情報（毎日自動更新）",
+                  "高還元案件の速報",
+                  "月5万円以上を目指す実践ノウハウ",
+                  "セルフバック完全ガイド（初月で成果）",
+                  "ブックマーク・お気に入り機能",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
 
-                <p className="text-xs text-primary font-medium tracking-widest uppercase mb-2">Premium</p>
-                <h2 className="font-serif text-xl font-bold mb-1">プレミアムプラン</h2>
-                <p className="flex items-baseline gap-1 mb-8">
-                  <span className="font-serif text-4xl font-bold">¥980</span>
-                  <span className="text-sm text-muted">/月</span>
-                </p>
+              <Button onClick={handleSubscribe} className="w-full" size="lg">
+                初月無料で始める
+              </Button>
 
-                <ul className="space-y-3 text-sm mb-8">
-                  {["すべてのガイド閲覧", "全案件情報（毎日更新）", "高還元案件の速報", "詳細な攻略法", "ブックマーク機能"].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                      </svg>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              <p className="text-xs text-muted text-center mt-4">
+                解約後も期間終了まで利用可能です
+              </p>
+            </div>
 
-                <Button onClick={handleSubscribe} className="w-full">
-                  プレミアムで始める
-                </Button>
+            {/* Flow explanation */}
+            <div className="reveal delay-2 mt-16 max-w-2xl mx-auto">
+              <h2 className="font-serif text-lg font-bold text-center mb-8">ご利用の流れ</h2>
+              <div className="space-y-4">
+                {[
+                  {
+                    step: "1",
+                    title: "無料登録",
+                    desc: "メールアドレスで登録。\nクレジットカード情報を入力しますが、30日間は課金されません。",
+                  },
+                  {
+                    step: "2",
+                    title: "初月：セルフバックで稼ぐ",
+                    desc: "ガイドに沿ってセルフバック案件を実行。\n初月で確実に成果を体験できます。",
+                  },
+                  {
+                    step: "3",
+                    title: "2ヶ月目〜：継続or解約",
+                    desc: "成果を実感できたら継続。\n合わなければ30日以内に解約すれば料金はかかりません。",
+                  },
+                ].map(({ step, title, desc }) => (
+                  <div key={step} className="flex gap-4 p-5 bg-surface rounded-[var(--radius-md)] border border-border-light">
+                    <div className="w-8 h-8 rounded-full bg-primary-lighter text-primary font-serif text-sm font-bold flex items-center justify-center shrink-0">
+                      {step}
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1">{title}</h3>
+                      <p className="text-sm text-muted whitespace-pre-line">{desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </SectionReveal>
@@ -96,16 +120,20 @@ export default function PricingPage() {
             <div className="space-y-3">
               {[
                 {
+                  q: "本当に初月は無料ですか？",
+                  a: "はい、最初の30日間は完全無料です。\n登録時にカード情報を入力いただきますが、\n30日以内に解約すれば一切課金されません。",
+                },
+                {
+                  q: "初月でどのくらい稼げますか？",
+                  a: "セルフバック案件を中心に進めれば、\n数万円の成果を出すことが可能です。\n具体的な案件と手順はガイドでご案内します。",
+                },
+                {
                   q: "いつでも解約できますか？",
-                  a: "はい、いつでも解約できます。\n解約後も、現在の課金期間の終了まではプレミアムコンテンツをご利用いただけます。",
+                  a: "はい、いつでも解約できます。\n解約後も、現在の課金期間の終了まで\nすべてのコンテンツをご利用いただけます。",
                 },
                 {
                   q: "支払い方法は？",
                   a: "クレジットカード\n（Visa、Mastercard、JCB、American Express）\nでお支払いいただけます。",
-                },
-                {
-                  q: "無料プランでも使えますか？",
-                  a: "はい。基本的なポイ活ガイドと一部の案件情報は、\n無料プランでもご覧いただけます。",
                 },
               ].map(({ q, a }) => (
                 <details

@@ -45,6 +45,9 @@ export async function POST() {
         quantity: 1,
       },
     ],
+    subscription_data: {
+      trial_period_days: 30,
+    },
     success_url: `${process.env.NEXT_PUBLIC_APP_URL}/dashboard?checkout=success`,
     cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/pricing?checkout=cancel`,
   });
