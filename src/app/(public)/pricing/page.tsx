@@ -55,7 +55,7 @@ export default function PricingPage() {
               </div>
 
               {/* Right: card */}
-              <div className="reveal delay-2 bg-surface rounded-[var(--radius-xl)] border border-border-light shadow-[var(--shadow-lg)] p-7 md:p-9">
+              <div className="reveal anim-d2 bg-surface rounded-[var(--radius-xl)] border border-border-light shadow-[var(--shadow-lg)] p-7 md:p-9">
                 <div className="flex items-baseline justify-between mb-5">
                   <div>
                     <p className="text-[11px] text-muted tracking-widest uppercase mb-1">Premium</p>

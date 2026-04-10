@@ -30,7 +30,7 @@ export default function HomePage() {
                 成果を出すまで。
               </h1>
 
-              <p className="animate-fade-in-up delay-2 text-muted text-[15px] leading-[1.9] mb-8 max-w-md">
+              <p className="animate-fade-in-up anim-d2 text-muted text-[15px] leading-[1.9] mb-8 max-w-md">
                 セルフバック案件を使えば、
                 <br className="hidden sm:block" />
                 初月から確実にポイントが貯まります。
@@ -40,7 +40,7 @@ export default function HomePage() {
                 全部ガイドに書いてあります。
               </p>
 
-              <div className="animate-fade-in-up delay-3 flex flex-wrap gap-3">
+              <div className="animate-fade-in-up anim-d3 flex flex-wrap gap-3">
                 <Button href="/signup" size="lg">
                   初月無料で始める
                 </Button>
@@ -49,13 +49,13 @@ export default function HomePage() {
                 </Button>
               </div>
 
-              <p className="animate-fade-in delay-5 text-[12px] text-muted/50 mt-4">
+              <p className="animate-fade-in anim-d5 text-[12px] text-muted/50 mt-4">
                 30日間無料 → 月額¥20,000。いつでも解約できます。
               </p>
             </div>
 
             {/* Right: Visual card */}
-            <div className="hidden md:block animate-slide-in-right delay-3">
+            <div className="hidden md:block animate-slide-in-right anim-d3">
               <div className="relative">
                 <div className="bg-surface rounded-[var(--radius-xl)] border border-border-light shadow-[var(--shadow-xl)] p-7">
                   <p className="text-xs text-muted mb-4 tracking-wide">
@@ -320,7 +320,7 @@ export default function HomePage() {
               ── よくある質問
             </p>
 
-            <div className="reveal delay-1 space-y-0 border border-border-light rounded-[var(--radius-lg)] overflow-hidden divide-y divide-border-light">
+            <div className="reveal anim-d1 space-y-0 border border-border-light rounded-[var(--radius-lg)] overflow-hidden divide-y divide-border-light">
               {[
                 {
                   q: "本当に初月無料ですか？",

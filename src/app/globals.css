@@ -315,13 +315,13 @@ img, video {
   animation: float 3s ease-in-out infinite;
 }
 
-/* Stagger delays */
-.delay-1 { animation-delay: 0.05s; }
-.delay-2 { animation-delay: 0.1s; }
-.delay-3 { animation-delay: 0.15s; }
-.delay-4 { animation-delay: 0.2s; }
-.delay-5 { animation-delay: 0.25s; }
-.delay-6 { animation-delay: 0.3s; }
+/* Stagger delays (prefixed to avoid Tailwind collision) */
+.anim-d1 { animation-delay: 0.08s; }
+.anim-d2 { animation-delay: 0.16s; }
+.anim-d3 { animation-delay: 0.24s; }
+.anim-d4 { animation-delay: 0.32s; }
+.anim-d5 { animation-delay: 0.4s; }
+.anim-d6 { animation-delay: 0.48s; }
 
 /* ===== Scroll-triggered reveal ===== */
 .reveal {

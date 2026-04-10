@@ -49,7 +49,7 @@ export default function AboutPage() {
               最新の案件情報をお届けしています。
             </p>
 
-            <div className="reveal delay-2">
+            <div className="reveal anim-d2">
               <h2 className="font-serif text-xl font-bold mb-4">特徴</h2>
               <div className="space-y-3">
                 {[
@@ -67,7 +67,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="reveal delay-3">
+            <div className="reveal anim-d3">
               <h2 className="font-serif text-xl font-bold mb-4">ご利用にあたって</h2>
               <p className="text-sm text-muted leading-relaxed">
                 当サイトで紹介している案件情報は、
@@ -81,7 +81,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="reveal delay-4 mt-12">
+          <div className="reveal anim-d4 mt-12">
             <Button href="/guides">ガイドを読んでみる</Button>
           </div>
         </SectionReveal>
