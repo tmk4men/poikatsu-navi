@@ -12,13 +12,13 @@ interface ButtonProps {
 }
 
 const baseStyles =
-  "inline-flex items-center justify-center font-medium tracking-wide transition-all disabled:opacity-50 disabled:pointer-events-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
+  "btn-bounce inline-flex items-center justify-center font-medium tracking-wide transition-all disabled:opacity-50 disabled:pointer-events-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
 
 const variants = {
   primary:
-    "bg-primary text-white rounded-full shadow-[var(--shadow-sm)] hover:bg-primary-dark hover:shadow-[var(--shadow-md)] active:scale-[0.97]",
+    "bg-primary text-white rounded-full shadow-[var(--shadow-sm)] hover:bg-primary-dark hover:shadow-[var(--shadow-md)]",
   outline:
-    "border border-border text-foreground rounded-full hover:border-primary hover:text-primary hover:bg-primary-lighter/40 active:scale-[0.97]",
+    "border border-border text-foreground rounded-full hover:border-primary hover:text-primary hover:bg-primary-lighter/40",
   ghost:
     "text-muted rounded-[var(--radius-md)] hover:text-foreground hover:bg-surface-alt",
 };

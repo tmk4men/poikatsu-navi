@@ -202,6 +202,94 @@ img, video {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ─── Button bounce (ぽいんっ) ─── */
+@keyframes btnBounce {
+  0%   { transform: scale(1); }
+  20%  { transform: scale(0.92); }
+  50%  { transform: scale(1.08); }
+  70%  { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
+.btn-bounce:active {
+  animation: btnBounce 0.45s var(--ease-out-cubic);
+}
+
+/* ─── Underline grow (見出し装飾) ─── */
+@keyframes underlineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ─── Stagger children (子要素の順次表示) ─── */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease-out-cubic),
+              transform 0.5s var(--ease-out-cubic);
+}
+
+.stagger-children.visible > *:nth-child(1) { transition-delay: 0s;    opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(2) { transition-delay: 0.07s; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(3) { transition-delay: 0.14s; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(4) { transition-delay: 0.21s; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(5) { transition-delay: 0.28s; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(6) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+
+/* ─── Slide-in variants for reveal ─── */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.7s var(--ease-out-cubic),
+              transform 0.7s var(--ease-out-cubic);
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.7s var(--ease-out-cubic),
+              transform 0.7s var(--ease-out-cubic);
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s var(--ease-out-cubic),
+              transform 0.6s var(--ease-out-cubic);
+}
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ─── Card hover lift ─── */
+.card-hover {
+  transition: transform 0.3s var(--ease-out-cubic),
+              box-shadow 0.3s var(--ease-out-cubic);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ─── Number counter animation ─── */
+@keyframes numberPop {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.animate-number-pop {
+  animation: numberPop 0.6s var(--ease-out-cubic) both;
+}
+
 /* Animation utility classes */
 .animate-fade-in-up {
   animation: fadeInUp 0.7s var(--ease-out-cubic) both;

@@ -18,10 +18,11 @@ export function useReveal() {
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -30px 0px" }
     );
 
-    const targets = el.querySelectorAll(".reveal");
+    const selectors = ".reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children";
+    const targets = el.querySelectorAll(selectors);
     targets.forEach((target) => observer.observe(target));
 
     return () => observer.disconnect();
