@@ -1,0 +1,20 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/crawl-moppy",
+      "schedule": "0 6 * * *"
+    },
+    {
+      "path": "/api/cron/crawl-hapitas",
+      "schedule": "0 7 * * *"
+    },
+    {
+      "path": "/api/cron/crawl-macromill",
+      "schedule": "0 8 * * *"
+    },
+    {
+      "path": "/api/cron/crawl-dokotoku",
+      "schedule": "0 9 * * *"
+    }
+  ]
+}
